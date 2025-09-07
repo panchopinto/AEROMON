@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AEROMON — ESP8266 (Aeropónico)</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script defer src="js/config.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand-logo"><img src="assets/logo.svg" alt="Logo"/><div class="brand">Portafolio Privado</div></div>
+  <nav class="nav">
+    <a class="tab" href="dashboard.html">Panel</a>
+    <a class="tab" href="#" id="btnSheet" rel="noopener">Hoja</a>
+    <a class="tab" href="../firmware/esp8266_aeromonitor.ino" download>Firmware</a>
+    <a class="tab" href="../google-apps-script/Code.gs" download>Script Apps</a>
+  </nav>
+</header>
+
+<main class="hero">
+  <section class="glass">
+    <span class="logo-badge">Monitoreo Aeropónico</span>
+    <h1>AEROMON — ESP8266</h1>
+    <p>Temperatura y humedad desde tu aeropónico a Google Sheets, con tablero listo para ferias y portafolio.</p>
+
+    <div class="cta-grid">
+      <button class="btn xl back" id="btnBackPortfolio">⟵ Volver al Portafolio</button>
+      <a class="btn xl" href="dashboard.html">📊 Ver Panel</a>
+      <button class="btn xl ghost" id="btnOpenSheet">🗂️ Ver Hoja</button>
+      <a class="btn" href="../firmware/esp8266_aeromonitor.ino" download>⬇️ Descargar Firmware</a>
+      <a class="btn" href="../google-apps-script/Code.gs" download>⬇️ Script Google Apps</a>
+      <a class="btn" href="https://github.com/" target="_blank" rel="noopener">🌐 Ver en GitHub</a>
+    </div>
+
+    <ul class="bullets">
+      <li>Botones grandes y accesibles (estilo vidrio).</li>
+      <li>Panel con tabla + gráfico (últimos N registros).</li>
+      <li>Listo para GitHub Pages (carpeta <code>web</code>).</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="footer">
+  <small>© 2025 — Proyecto educativo en el Liceo Bicentenario de Excelencia Polivalente San Nicolás.</small>
+</footer>
+
+<script>
+  document.getElementById('btnOpenSheet').addEventListener('click', ()=>{
+    if(typeof SHEET_CSV_URL === 'string' && SHEET_CSV_URL){
+      // Abre la publicación de la hoja (CSV) en otra pestaña
+      window.open(SHEET_CSV_URL, '_blank', 'noopener');
+    }else{
+      alert('Configura SHEET_CSV_URL en js/config.js');
+    }
+  });
+</script>
+</body>
+</html>
