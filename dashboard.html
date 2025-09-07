@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Panel — AEROMON ESP8266</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script defer src="js/config.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand-logo"><img src="assets/logo.svg" alt="Logo"/><div class="brand">AEROMON</div></div>
+  <nav class="nav">
+    <button class="tab" id="btnBackPortfolio">⟵ Volver al Portafolio</button>
+    <a class="tab" href="index.html">Inicio</a>
+    <button class="tab" id="btnReload">Actualizar</button>
+  </nav>
+</header>
+
+<main class="panel">
+  <section class="cards">
+    <article class="card metric temp">
+      <h3>Temperatura (°C)</h3>
+      <div class="value" id="tempNow">--</div>
+      <small id="tempTrend" class="trend">—</small>
+    </article>
+    <article class="card metric hum">
+      <h3>Humedad (%)</h3>
+      <div class="value" id="humNow">--</div>
+      <small id="humTrend" class="trend">—</small>
+    </article>
+    <article class="card metric">
+      <h3>Última lectura</h3>
+      <div class="value" id="lastTime">--</div>
+      <small>Hoja1</small>
+    </article>
+  </section>
+
+  <section class="glass">
+    <h2>Histórico reciente (promedio por hora)</h2>
+    <div class="chart-box"><canvas id="lineChart"></canvas></div>
+  </section>
+
+  <section class="glass">
+    <h2>Registros (últimos N)</h2>
+    <div class="table-wrap">
+      <table class="table" id="tbl">
+        <thead><tr><th>Fecha</th><th>Temp (°C)</th><th>Humedad (%)</th><th>IP</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <small>Los datos provienen de Google Sheets publicados como CSV.</small>
+</footer>
+
+<script>
+  (function(){
+    const back = document.getElementById('btnBackPortfolio');
+    if(back){
+      back.addEventListener('click', ()=>{
+        if(typeof PORTAFOLIO_URL === 'string' && PORTAFOLIO_URL){
+          window.location.href = PORTAFOLIO_URL;
+        }else{
+          alert('Configura PORTAFOLIO_URL en js/config.js');
+        }
+      });
+    }
+  })();
+</script>
+</body>
+</html>
