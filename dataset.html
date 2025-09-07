@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Dataset — AEROMON ESP8266</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script defer src="js/config.js"></script>
+  <script defer src="js/dataset.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo-badge">AEROMON</span>
+    <span class="brand-title">ESP8266 — Dataset</span>
+  </div>
+  <nav class="nav">
+    <a class="tab" href="index.html"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 10.5 12 3l9 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 19.5v-9Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 21v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Inicio</span></a>
+    <a class="tab" href="dashboard.html"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 15l4-4 3 3 4-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Dashboard</span></a>
+    <a class="tab active" href="dataset.html"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M9 9v11" stroke="currentColor" stroke-width="1.8"/></svg><span>Dataset</span></a>
+    <button id="btnClock" class="chip" disabled><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="clock">--:--:--</span></button>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="glass">
+    <header class="section-head">
+      <h2><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M9 9v11" stroke="currentColor" stroke-width="1.8"/></svg> Datos de la hoja</h2>
+      <div class="toolbar">
+        <label class="chip">Filas: <span id="rowsCount">0</span></label>
+        <button id="btnReload" class="btn"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 7v6h-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 13a8 8 0 1 1-2.34-5.66L20 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Actualizar</span></button>
+      </div>
+    </header>
+    <div class="table-wrap">
+      <table id="table"></table>
+    </div>
+  </section>
+</main>
+
+
+<footer class="footer footer-actions">
+  <div class="actions">
+    <a class="btn icon" href="https://panchopinto.github.io/cartas-ar-biologia/"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v8" stroke="currentColor" stroke-width="1.8"/></svg><span>Células 3D</span></a>
+    <a class="btn icon" href="https://panchopinto.github.io/trivias-biologia/"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 7a4 4 0 1 1 6.8 2.8C13.5 11 13 11.8 13 13H11c0-1.6.7-2.6 1.7-3.3.9-.6 1.3-1.1 1.3-1.7A2 2 0 1 0 8 7Z" fill="currentColor"/><path d="M12 17.75v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Trivias Biología</span></a>
+    <a class="btn icon" href="https://panchopinto.github.io/PROYECTOS-PANCHOPINTO/"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/></svg><span>Portafolio</span></a>
+  </div>
+  <small class="copy">Hecho con ❤️ para Pancho — 2025</small>
+</footer>
+
+
+<script>
+  function tick(){ const d=new Date(); 
+    document.querySelector('#btnClock .clock').textContent = d.toLocaleString();
+  }
+  tick(); setInterval(tick,1000);
+</script>
+</body>
+</html>
