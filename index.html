@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Inicio — AEROMON ESP8266</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script defer src="js/config.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo-badge">AEROMON</span>
+    <span class="brand-title">ESP8266 — Panel</span>
+  </div>
+  <nav class="nav">
+    <a class="tab" href="index.html"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 10.5 12 3l9 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 19.5v-9Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 21v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Inicio</span></a>
+    <a class="tab" href="dashboard.html"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 15l4-4 3 3 4-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Dashboard</span></a>
+    <a class="tab" href="dataset.html"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M9 9v11" stroke="currentColor" stroke-width="1.8"/></svg><span>Dataset</span></a>
+    <button id="btnClock" class="chip" disabled><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="clock">--:--:--</span></button>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="grid">
+    <a class="card card-link" href="dashboard.html">
+      <h2><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 15l4-4 3 3 4-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Dashboard</h2>
+      <p>Visualiza métricas con agregación por hora. Limpia el ruido minuto a minuto.</p>
+      <div class="badges">
+        <span class="badge">Promedio por hora</span>
+        <span class="badge">Chart.js 4</span>
+        <span class="badge">CSV (Google Sheets)</span>
+      </div>
+    </a>
+    <a class="card card-link" href="dataset.html">
+      <h2><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M9 9v11" stroke="currentColor" stroke-width="1.8"/></svg> Dataset</h2>
+      <p>Tabla con los registros en vivo desde la misma hoja.</p>
+      <div class="badges">
+        <span class="badge">Hoja: <strong>Hoja1</strong></span>
+        <span class="badge">GID configurable</span>
+      </div>
+    </a>
+    <div class="card">
+      <h2><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M10 14l-1 1a4 4 0 1 1 0-6l1 1m4 0l1-1a4 4 0 1 1 0 6l-1-1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Cómo funciona</h2>
+      <ol>
+        <li>Configura <code>SHEET_ID</code> y <code>GID</code> en <code>js/config.js</code>.</li>
+        <li>Comparte el Sheet como “Cualquiera con el enlace (lector)”.</li>
+        <li>Se descarga CSV vía <code>gviz/tq?tqx=out:csv&amp;gid=...</code>.</li>
+      </ol>
+      <p class="note">Tip: puedes forzar otro <strong>gid</strong> con <code>?gid=123456</code> en la URL.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div id="t_created_by">Creado por: Francisco Pinto Aravena - franciscoandresp@gmail.com</div>
+  <div id="t_edu_purpose">Este proyecto es desarrollado con propósitos educacionales, motivando el desarrollo, culturización e innovación tecnológica en las aulas.</div>
+  <div>© <span class="year"></span> Queda prohibida la copia, redistribución o adaptación de los contenidos, modelos 3D, imágenes y código aquí publicados sin autorización expresa por escrito.</div>
+  <div id="t_all_rights">© Todos los derechos reservados.</div>
+  <small class="copy">Hecho con ❤️ Pancho — 2025</small>
+</footer>
+
+
+  
+<script>
+  function tick(){ const d=new Date(); 
+    document.querySelector('#btnClock .clock').textContent = d.toLocaleString();
+  }
+  tick(); setInterval(tick,1000);
+</script>
+</body>
+</html>
