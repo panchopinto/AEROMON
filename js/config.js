@@ -3,7 +3,7 @@
 const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTsFq3I7ieNuPoPqH7Pl732_AMhYcaF1R1EMbGz4ZWwNAcxOBDTqjiWrrP8GFUGDYOXSHEjfEtMjUKN/pubhtml?gid=0&single=true";
 
 // Opcional: cuántos registros graficar/mostrar
-const ROW_LIMIT = 10; // últimos 60
+const ROW_LIMIT = 5; // últimos 5
 
 
 // URL de tu Portafolio Privado (GitHub Pages o dominio). Déjalo vacío hasta que lo tengas:
