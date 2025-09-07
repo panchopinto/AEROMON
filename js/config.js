@@ -1,10 +1,13 @@
 // === Configuración del panel ===
-// Pega aquí la URL pública (CSV) de tu Hoja1 publicada:
-const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTsFq3I7ieNuPoPqH7Pl732_AMhYcaF1R1EMbGz4ZWwNAcxOBDTqjiWrrP8GFUGDYOXSHEjfEtMjUKN/pub?gid=0&single=true&output=csv";
 
-// Opcional: cuántos registros graficar/mostrar
-const ROW_LIMIT = 5; // últimos 5
+// URL publicada como CSV de tu Hoja1
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTsFq3i7leNuPoPqH7Pl732_AMhYcaF1RIEMbGz4ZWwNAcxOBDTqjjWrrP8GFUGDYOXSHEJfEtMjUKJN/pub?gid=0&single=true&output=csv";
 
+// Deja vacío el GViz (solo lo usarás si cambias a modo LIMIT)
+const SHEET_GVIZ_URL = "";
 
-// URL de tu Portafolio Privado (GitHub Pages o dominio). Déjalo vacío hasta que lo tengas:
-const PORTAFOLIO_URL = "";
+// Número máximo de filas a mostrar en tabla y gráfico
+const ROW_LIMIT = 200;
+
+// URL de tu portafolio privado (para botón “Volver al Portafolio”)
+const PORTAFOLIO_URL = "https://panchopinto.github.io/PROYECTOS-PANCHOPINTO/";
