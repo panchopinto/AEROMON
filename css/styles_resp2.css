@@ -110,17 +110,3 @@ p{margin:.4em 0 1em;color:var(--muted)}
   color:var(--muted);
   font-weight:600;
 }
-
-
-/* Estado badges */
-.badge{
-  display:inline-block; padding:6px 10px; border-radius:999px; font-weight:800;
-  letter-spacing:.3px; font-size:12px; border:1px solid var(--glass-bd);
-}
-.badge.ok{ color:#052e1a; background:linear-gradient(135deg,#34d399,#10b981) }
-.badge.warn{ color:#3f2010; background:linear-gradient(135deg,#fdba74,#fb923c) }
-.badge.alert{ color:#3a0a0a; background:linear-gradient(135deg,#f87171,#ef4444) }
-.index-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; margin-top:12px }
-.card.kpi{ display:grid; gap:6px }
-.card.kpi .label{ color:var(--muted); font-weight:700 }
-.card.kpi .big{ font:900 clamp(22px,6vw,40px)/1.1 system-ui }

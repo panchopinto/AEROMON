@@ -3,62 +3,75 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>AEROMON — Dashboard</title>
+  <title>Panel — AEROMON ESP8266</title>
   <link rel="stylesheet" href="css/styles.css"/>
-  <!-- PapaParse para CSV robusto -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-  <!-- Chart.js para gráficos -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script defer src="js/config.js"></script>
+  <script defer src="js/app.js"></script>
 </head>
 <body>
 <header class="topbar">
-  <div class="brand">AEROMON</div>
+  <div class="brand-logo"><img src="assets/logo.svg" alt="Logo"/><div class="brand">AEROMON</div></div>
   <nav class="nav">
-    <a class="btn" href="index.html">🏠 Inicio</a>
-    <button class="btn" id="btnRefresh">🔁 Actualizar</button>
+    <button class="tab" id="btnBackPortfolio">⟵ Volver al Portafolio</button>
+    <a class="tab" href="index.html">Inicio</a>
+    <button class="tab" id="btnReload">Actualizar</button>
   </nav>
 </header>
 
-<main class="container">
+<main class="panel">
   <section class="cards">
-    <article class="card kpi temperature">
+    <article class="card metric temp">
       <h3>Temperatura (°C)</h3>
-      <div class="kpi-value"><span id="temp">—</span></div>
-      <div class="kpi-sub">→ desde <span id="temp-from">—</span>°C</div>
+      <div class="value" id="tempNow">--</div>
+      <small id="tempTrend" class="trend">—</small>
     </article>
-    <article class="card kpi humidity">
+    <article class="card metric hum">
       <h3>Humedad (%)</h3>
-      <div class="kpi-value"><span id="hum">—</span></div>
-      <div class="kpi-sub">→ desde <span id="hum-from">—</span>%</div>
+      <div class="value" id="humNow">--</div>
+      <small id="humTrend" class="trend">—</small>
     </article>
-    <article class="card info">
+    <article class="card metric">
       <h3>Última lectura</h3>
-      <div class="kpi-value small"><span id="last-read">—</span></div>
-      <div id="status" class="status"></div>
+      <div class="value" id="lastTime">--</div>
+      <small>Hoja1</small>
     </article>
   </section>
 
-  <section class="card chart-card">
-    <div class="chart-header">
-      <h3>Histórico</h3>
-      <div class="tools">
-        <label class="switch">
-          <input type="checkbox" id="autoToggle" checked>
-          <span class="slider"></span>
-        </label>
-        <span class="label">Auto (60s)</span>
-      </div>
+  <section class="glass">
+    <h2>Histórico reciente</h2>
+    <div class="chart-box"><canvas id="lineChart"></canvas></div>
+  </section>
+
+  <section class="glass">
+    <h2>Registros (últimos N)</h2>
+    <div class="table-wrap">
+      <table class="table" id="tbl">
+        <thead><tr><th>Fecha</th><th>Temp (°C)</th><th>Humedad (%)</th><th>IP</th></tr></thead>
+        <tbody></tbody>
+      </table>
     </div>
-    <canvas id="historyChart" height="140"></canvas>
   </section>
 </main>
 
 <footer class="footer">
-  <div id="clock" class="clock">—</div>
+  <small>Los datos provienen de Google Sheets publicados como CSV.</small>
 </footer>
 
-<script src="js/config.js"></script>
-<script src="js/clock.js"></script>
-<script src="js/app.js"></script>
+<script>
+  (function(){
+    const back = document.getElementById('btnBackPortfolio');
+    if(back){
+      back.addEventListener('click', ()=>{
+        if(typeof PORTAFOLIO_URL === 'string' && PORTAFOLIO_URL){
+          window.location.href = PORTAFOLIO_URL;
+        }else{
+          alert('Configura PORTAFOLIO_URL en js/config.js');
+        }
+      });
+    }
+  })();
+</script>
 </body>
 </html>
