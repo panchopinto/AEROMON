@@ -1,8 +1,8 @@
 import { CONFIG } from './config.js';
+
 const els = {
   table: document.getElementById('table'),
   rowsCount: document.getElementById('rowsCount'),
-  reload: document.getElementById('btnReload'),
 };
 
 async function load(){
@@ -16,15 +16,15 @@ async function load(){
 }
 
 function renderTable(data){
-  if(!data || !data.length){ els.table.innerHTML = "<caption>Sin datos</caption>"; return; }
+  if(!data || !data.length){ document.getElementById('table').innerHTML = "<caption>Sin datos</caption>"; return; }
   const headers = Object.keys(data[0]);
   let html = "<thead><tr>" + headers.map(h=>`<th>${h}</th>`).join("") + "</tr></thead><tbody>";
   for(const row of data){
     html += "<tr>" + headers.map(h=>`<td>${row[h]??""}</td>`).join("") + "</tr>";
   }
   html += "</tbody>";
-  els.table.innerHTML = html;
-  els.rowsCount.textContent = data.length;
+  document.getElementById('table').innerHTML = html;
+  document.getElementById('rowsCount').textContent = data.length;
 }
 
 async function refresh(){
@@ -33,7 +33,7 @@ async function refresh(){
     renderTable(res.data);
   }catch(e){
     console.error(e);
-    els.table.innerHTML = "<caption>Error al leer CSV (¿ID/GID correctos?)</caption>";
+    document.getElementById('table').innerHTML = "<caption>Error al leer CSV (¿ID/GID correctos?)</caption>";
   }
 }
 

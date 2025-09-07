@@ -1,6 +1,7 @@
-# AEROMON — Dashboard con iconos + footer estilo Células/Trivias
-- Iconos inline (sin dependencias), botones y tabs ejecutivos.
-- Footers con links a Células 3D, Trivias Biología y Portafolio.
-- Gráfico con agregado por hora (y crudo por minuto).
+# AEROMON — Página informativa y atractiva (con iconos y botones)
 
-Recuerda compartir tu Google Sheet como público con enlace. Configura `js/config.js`.
+- Se removió la sección “Cómo funciona” del inicio.
+- Index con tarjeta “Acerca de AEROMON” (texto amigable y bullets con íconos).
+- Footer tipo Células/Trivias en index, dashboard y dataset.
+- Dashboard con botones con íconos y colores; Chart.js + date-fns adapter.
+- Configura `js/config.js` o usa `?sheet=ID&gid=NUM`.
