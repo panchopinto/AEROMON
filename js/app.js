@@ -1,5 +1,4 @@
 import { CONFIG } from './config.js';
-
 const els = {
   statTemp: document.getElementById('stat-temp'),
   statHum: document.getElementById('stat-hum'),
@@ -8,7 +7,6 @@ const els = {
   lastErr: document.getElementById('lastError'),
   canvas: document.getElementById('chart'),
 };
-
 let chart, rawRows=[], hourlyRows=[], headers=[], numericCols=[];
 let mode = 'hour';
 
@@ -97,10 +95,10 @@ function updateStats(objs){
     return;
   }
   const prev = objs[objs.length-2] || null;
-
-  const tempKey = (numericCols.find(c=>/ambiente|temp(?!.*agua)|^t(?!.*agua)/i.test(c.h))||numericCols[0]||{}).h;
-  const humKey  = (numericCols.find(c=>/hum/i.test(c.h))||{}).h;
-  const waterKey= (numericCols.find(c=>/agua|water/i.test(c.h))||{}).h;
+  const findH = (re, def=null)=> (numericCols.find(c=>re.test(c.h))?.h || def);
+  const tempKey = findH(/ambiente|temp(?!.*agua)|^t(?!.*agua)/i, numericCols[0]?.h);
+  const humKey  = findH(/hum/i, null);
+  const waterKey= findH(/agua|water/i, null);
 
   if(tempKey){
     els.statTemp.querySelector('.value').textContent = fmt(last[tempKey], "°C");
@@ -182,7 +180,7 @@ async function refresh(){
 }
 
 document.addEventListener('click', (ev)=>{
-  const id = (ev.target.closest('button')||{}).id;
+  const id = (ev.target.closest('button, a')||{}).id || "";
   if(id==='modeHour'){ mode='hour'; setBtns(); buildChart(hourlyRows); }
   if(id==='modeRaw'){ mode='raw'; setBtns(); buildChart(rawRows); }
   if(id==='btnReload'){ refresh(); }

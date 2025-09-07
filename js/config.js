@@ -6,6 +6,6 @@ export const CONFIG = (()=>{
   const url = new URL(window.location.href);
   const SHEET_ID = url.searchParams.get('sheet') || DEFAULT_SHEET_ID;
   const GID = parseInt(url.searchParams.get('gid') || DEFAULT_GID, 10);
-  const CSV_URL = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTsFq3I7ieNuPoPqH7Pl732_AMhYcaF1R1EMbGz4ZWwNAcxOBDTqjiWrrP8GFUGDYOXSHEjfEtMjUKN/pub?gid=0&single=true&output=csv`;
+  const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=${GID}`;
   return { SHEET_ID, GID, CSV_URL };
 })();
