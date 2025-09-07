@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AEROMON — Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <!-- PapaParse para CSV robusto -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <!-- Chart.js para gráficos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">AEROMON</div>
+  <nav class="nav">
+    <a class="btn" href="index.html">🏠 Inicio</a>
+    <button class="btn" id="btnRefresh">🔁 Actualizar</button>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="cards">
+    <article class="card kpi temperature">
+      <h3>Temperatura (°C)</h3>
+      <div class="kpi-value"><span id="temp">—</span></div>
+      <div class="kpi-sub">→ desde <span id="temp-from">—</span>°C</div>
+    </article>
+    <article class="card kpi humidity">
+      <h3>Humedad (%)</h3>
+      <div class="kpi-value"><span id="hum">—</span></div>
+      <div class="kpi-sub">→ desde <span id="hum-from">—</span>%</div>
+    </article>
+    <article class="card info">
+      <h3>Última lectura</h3>
+      <div class="kpi-value small"><span id="last-read">—</span></div>
+      <div id="status" class="status"></div>
+    </article>
+  </section>
+
+  <section class="card chart-card">
+    <div class="chart-header">
+      <h3>Histórico</h3>
+      <div class="tools">
+        <label class="switch">
+          <input type="checkbox" id="autoToggle" checked>
+          <span class="slider"></span>
+        </label>
+        <span class="label">Auto (60s)</span>
+      </div>
+    </div>
+    <canvas id="historyChart" height="140"></canvas>
+  </section>
+</main>
+
+<footer class="footer">
+  <div id="clock" class="clock">—</div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/clock.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

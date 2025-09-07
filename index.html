@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AEROMON — Inicio</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">AEROMON</div>
+  <nav class="nav">
+    <a class="btn" href="dashboard.html">📊 Dashboard</a>
+    <a class="btn outline" href="https://github.com/panchopinto/AEROMON" target="_blank" rel="noopener">🌐 Repo</a>
+  </nav>
+</header>
+
+<main class="hero">
+  <section class="glass hero-card">
+    <h1>Monitor de Aeroponía</h1>
+    <p>Visualiza en tiempo real temperatura y humedad registradas por tu ESP8266. Los datos se leen desde Google Sheets (CSV publicado).</p>
+    <ul class="bullets">
+      <li>Actualización automática cada 60 s.</li>
+      <li>Manejo de error 404 con mensaje claro en pantalla.</li>
+      <li>Gráfico con zoom/hover y leyenda.</li>
+    </ul>
+    <a class="cta" href="dashboard.html">Ir al Dashboard</a>
+  </section>
+</main>
+
+<footer class="footer">
+  <div id="clock" class="clock">—</div>
+</footer>
+
+<script src="js/clock.js"></script>
+</body>
+</html>
