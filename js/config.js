@@ -10,7 +10,7 @@ const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTsFq3I7i
 const SHEET_GVIZ_URL = "";
 
 // Número máximo de filas a mostrar
-const ROW_LIMIT = 20;
+const ROW_LIMIT = 10;
 
 // URL de tu Portafolio (para botón “Volver al Portafolio”)
 const PORTAFOLIO_URL = "https://panchopinto.github.io/PROYECTOS-PANCHOPINTO/";
