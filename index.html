@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AEROMON — ESP8266 (Aeropónico)</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script defer src="js/config.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand-logo"><img src="assets/logo.svg" alt="Logo"/><div class="brand">Portafolio Privado</div></div>
+  <nav class="nav">
+    <a class="tab" href="dashboard.html">Panel</a>
+    <button class="tab" id="btnBackPortfolio">⟵ Volver al Portafolio</button>
+  </nav>
+</header>
+
+<main class="hero">
+  <section class="glass">
+    <span class="logo-badge">Monitoreo Aeropónico</span>
+    <h1>AEROMON — ESP8266</h1>
+    <p>Temperatura y humedad desde tu aeropónico a Google Sheets, con tablero listo para ferias y portafolio.</p>
+
+    <div class="cta-grid">
+      <a class="btn xl primary" href="dashboard.html">📊 Ver Panel</a>
+      <a class="btn xl secondary" href="https://github.com/" target="_blank" rel="noopener">🌐 Ver en GitHub</a>
+    </div>
+
+    <div id="clockBox" class="clock"><div class="time" id="clkTime">--:--:--</div><div class="date" id="clkDate">—</div></div>
+
+    <ul class="bullets">
+      <li>Botones grandes y accesibles (estilo vidrio y gradientes).</li>
+      <li>Panel con tabla + gráfico (últimos N registros) con límites dinámicos.</li>
+      <li>Listo para GitHub Pages (carpeta <code>docs</code>).</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="footer">
+  <small>© 2025 — Proyecto educativo en el Liceo Bicentenario de Excelencia Polivalente San Nicolás.</small>
+</footer>
+
+<script>
+  document.getElementById('btnBackPortfolio').addEventListener('click', ()=>{
+    if(typeof PORTAFOLIO_URL==='string' && PORTAFOLIO_URL){
+      window.location.href = PORTAFOLIO_URL;
+    } else {
+      alert('Configura PORTAFOLIO_URL en js/config.js');
+    }
+  });
+  function updateClock(){
+    try{
+      const tEl = document.getElementById('clkTime');
+      const dEl = document.getElementById('clkDate');
+      const now = new Date();
+      if(tEl) tEl.textContent = now.toLocaleTimeString('es-CL', { hour12:false });
+      if(dEl) dEl.textContent = now.toLocaleDateString('es-CL', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+    }catch(e){}
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
+</body>
+</html>
