@@ -3,7 +3,7 @@
 // URL publicada como CSV de tu Hoja1
 // const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTsFq3I7ieNuPoPqH7Pl732_AMhYcaF1R1EMbGz4ZWwNAcxOBDTqjiWrrP8GFUGDYOXSHEjfEtMjUKN/pub?gid=0&single=true&output=csv";
 
-const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1cUd239eUP5Hj3WJnH3_cS6AOhTzzCG8hqU-ZKvuElDY/export?format=csv&gid=0/pub?gid=0&single=true&output=csv";
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTsFq3I7ieNuPoPqH7Pl732_AMhYcaF1R1EMbGz4ZWwNAcxOBDTqjiWrrP8GFUGDYOXSHEjfEtMjUKN/pub?gid=0&single=true&output=csv";
 
 
 // Deja vacío el GViz (solo lo usarás si cambias a modo LIMIT)
